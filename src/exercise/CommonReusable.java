@@ -1,10 +1,10 @@
-package sample;
+package exercise;
 
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
 
-public class Exercise {
+public class CommonReusable {
 
 	WebDriver driver;
 
@@ -15,7 +15,7 @@ public class Exercise {
 	By value5 = By.id("txt_val5");
 	By totalValue = By.id("txt_ttl_val");
 
-	public Exercise(WebDriver driver) {
+	public CommonReusable(WebDriver driver) {
 		this.driver = driver;
 	}
 
