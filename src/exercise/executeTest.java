@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -43,9 +44,10 @@ public class executeTest {
 			Assert.assertTrue(objects.checkValuePresentOnScreen(objects.value4), "Value4 is displayed");
 			Assert.assertTrue(objects.checkValuePresentOnScreen(objects.value4), "Value5 is displayed");
 			Assert.assertTrue(objects.checkValuePresentOnScreen(objects.totalValue), "Total Balance is displayed");
+			Reporter.log("Test case pass", true);
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
-			driver.quit();		
+			driver.quit();
 		}
 	}
 
@@ -59,6 +61,7 @@ public class executeTest {
 			Assert.assertTrue(objects.valueGreaterThanZero(objects.value4), "Value4 is greater than 0");
 			Assert.assertTrue(objects.valueGreaterThanZero(objects.value5), "Value5 is greater than 0");
 			Assert.assertTrue(objects.valueGreaterThanZero(objects.totalValue), "totalValue is greater than 0");
+			Reporter.log("Test case pass", true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			driver.quit();
@@ -70,6 +73,7 @@ public class executeTest {
 		try {
 			objects = new CommonReusable(driver);
 			Assert.assertTrue(objects.valueMatches(objects.totalValue, 1000000.00), "Total Balance matches");
+			Reporter.log("Test case pass", true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			driver.quit();
@@ -81,10 +85,11 @@ public class executeTest {
 
 		objects = new CommonReusable(driver);
 		Assert.assertTrue(objects.totalBalanceMatchesSum(), "Total Balance matches the sum of values");
+		Reporter.log("Test case pass", true);
 
 	}
 
-	@Test(testName = "verify currencies", priority = 4,  enabled = true)
+	@Test(testName = "verify currencies", priority = 4, enabled = true)
 
 	public void verify_Currenncy() throws Exception {
 		try {
@@ -95,6 +100,7 @@ public class executeTest {
 			Assert.assertTrue(objects.verifyCurrency(objects.value4));
 			Assert.assertTrue(objects.verifyCurrency(objects.value5));
 			Assert.assertTrue(objects.verifyCurrency(objects.totalValue));
+			Reporter.log("Test case pass", true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			driver.quit();
